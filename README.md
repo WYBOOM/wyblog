@@ -1,0 +1,2 @@
+# wyblog
+a blog
