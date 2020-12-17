@@ -18,9 +18,9 @@
             "port": "22", //��¼�˿�
             "ref": "origin/main", //git�ֿ��Ӧ����ĿĿ¼
             "repo": "git@github.com:WYBOOM/wyblog.git",
-            "path": "/html/www/wyblog", //Ҫ���𵽷������ĸ�λ�ã����û�л��Զ�����
+            "path": "/html/www/wyblog", //Ҫ���𵽷������ĸ�λ�ã����û�л��Զ����� 
             "ssh_options": "StrictHostKeyChecking=no",
-            "post-deploy": "npm install &&  pm2 reload deploy.yaml --env production",
+            "post-deploy": "cnpm install &&  pm2 reload deploy.yaml --env production",
             "pre-deploy-local": "echo 'Deploy Done!'", //��ʾ��������
             "env": {
                 "NODE_ENV": "production"
