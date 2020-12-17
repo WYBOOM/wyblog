@@ -18,10 +18,9 @@
             "port": "22", //登录端口
             "ref": "origin/main", //git仓库对应的项目目录
             "repo": "git@github.com:WYBOOM/wyblog.git",
-            "path": "/html/www/wyblog", //要部署到服务器哪个位置，如果没有会自动创建
+            "path": "/html/www/wyblog", //要部署到服务器哪个位置，如果没有会自动创建 
             "ssh_options": "StrictHostKeyChecking=no",
-            //构建在发布
-            // "post-deploy": "npm install --registry=https://registry.npm.taobao.org && grunt build && pm2 startOrRestart ecosystem.json --env production",
+            "post-deploy": "cnpm install &&  pm2 reload deploy.yaml --env production",
             "pre-deploy-local": "echo 'Deploy Done!'", //提示发布进程
             "env": {
                 "NODE_ENV": "production"
