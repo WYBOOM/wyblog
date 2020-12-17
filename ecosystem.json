@@ -1,8 +1,8 @@
 {
     "apps": [
         {
-            "name": "wyblog", //¶ÔÓ¦NginxÉÏµÄÅäÖÃ
-            "script": "./bin/www", //Èë¿ÚÎÄ¼þ
+            "name": "wyblog", //ï¿½ï¿½Ó¦Nginxï¿½Ïµï¿½ï¿½ï¿½ï¿½ï¿½
+            "script": "./bin/www", //ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
             "env": {
                 "COMON_VARIABLE": "true"
             },
@@ -14,15 +14,14 @@
     "deploy": {
         "production": {
             "user": "root",
-            "host": ["106.52.75.174"], //·þÎñÆ÷ipµØÖ·
-            "port": "22", //µÇÂ¼¶Ë¿Ú
-            "ref": "origin/main", //git²Ö¿â¶ÔÓ¦µÄÏîÄ¿Ä¿Â¼
+            "host": ["106.52.75.174"], //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ipï¿½ï¿½Ö·
+            "port": "22", //ï¿½ï¿½Â¼ï¿½Ë¿ï¿½
+            "ref": "origin/main", //gitï¿½Ö¿ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½Ä¿Ä¿Â¼
             "repo": "git@github.com:WYBOOM/wyblog.git",
-            "path": "/html/www/wyblog", //Òª²¿Êðµ½·þÎñÆ÷ÄÄ¸öÎ»ÖÃ£¬Èç¹ûÃ»ÓÐ»á×Ô¶¯´´½¨
+            "path": "/html/www/wyblog", //Òªï¿½ï¿½ï¿½ðµ½·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¸ï¿½Î»ï¿½Ã£ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð»ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½ï¿½ï¿½
             "ssh_options": "StrictHostKeyChecking=no",
-            //¹¹½¨ÔÚ·¢²¼
-            // "post-deploy": "npm install --registry=https://registry.npm.taobao.org && grunt build && pm2 startOrRestart ecosystem.json --env production",
-            "pre-deploy-local": "echo 'Deploy Done!'", //ÌáÊ¾·¢²¼½ø³Ì
+            "post-deploy": "npm install &&  pm2 reload deploy.yaml --env production",
+            "pre-deploy-local": "echo 'Deploy Done!'", //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             "env": {
                 "NODE_ENV": "production"
             }
