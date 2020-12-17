@@ -6,8 +6,10 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
-const index = require('./routes/index')
-const users = require('./routes/users')
+const routeList = [
+    require('./routes/index'),
+    require('./routes/users')
+]
 
 // error handler
 onerror(app)
@@ -33,8 +35,10 @@ app.use(async (ctx, next) => {
 })
 
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+routeList.forEach(route=>{
+    route.prefix('/api') //设置前缀
+    app.use(route.routes(),route.allowedMethods())
+})
 
 // error-handling
 app.on('error', (err, ctx) => {
